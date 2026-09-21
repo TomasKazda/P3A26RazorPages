@@ -1,0 +1,15 @@
+﻿@page "{Cnt:int?}"
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>Pozdravovátor</h1>
+
+<p>Vypiš celkem <a asp-route-Cnt="4" asp-page-handler="Another">4 pozdravy</a></p>
+
+ <ul>
+    @for (int i = 1; i <= this.Model.Counter; i++)
+    {
+        <li>Item @(i) @this.Model.Pozdrav</li>
+    }
+</ul>
