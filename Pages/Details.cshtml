@@ -1,0 +1,22 @@
+﻿@page
+@model P3A26RazorPages.Pages.DetailsModel
+@{
+    Layout = "_Simple";
+}
+
+<h1>People Details</h1>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Gender</td>
+        </tr>
+    </tbody>
+</table>

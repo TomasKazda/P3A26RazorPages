@@ -6,6 +6,19 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">People list</h1>
+    <p>Filtered by gender: @(Model.FilterGender.HasValue ? (Model.FilterGender.Value ? "Female" : "Male") : "All")</p>
+    <p>Filter by: <a asp-route-filterGender="">All</a> | <a asp-route-filterGender="true">Female</a> | <a asp-route-filterGender="false">Male</a></p>
+    <ul>
+        @foreach (var person in Model.People)
+        {
+            @if (Model.FilterGender.HasValue && person.Gender != Model.FilterGender.Value)
+            {
+                continue;
+            }
+            <li>
+                <a asp-page-handler="Details" asp-route-name="@person.Name">@person.Name (@(person.Gender ? "♀" : "♂"))</a>
+            </li>
+        }
+    </ul>
 </div>
